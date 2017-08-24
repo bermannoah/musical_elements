@@ -15,9 +15,22 @@ defmodule MusicalElements do
 
   def get_id3_tags(path_to_file) do
     if MundaneElements.get_file_type(path_to_file) == :mp3 do
-      :hey
+      read_tags(path_to_file)
     else
       :musical_error
     end
+  end
+
+  def read_tags(path_to_file) do
+    case File.read(path_to_file) do
+      {:ok, binary} ->
+        parse_tags(binary)
+        _->
+          :musical_error
+    end
+  end
+
+  def parse_tags(binary) do
+    :hey
   end
 end
