@@ -7,10 +7,12 @@ defmodule MusicalElements.ID3V2Parser do
   end
 
   def parse_id3_v2(tag_frames) do
+    # album_cover returns an album cover if there is one
     %{
       title: tag_frames["TIT2"],
       artist: tag_frames["TPE1"],
-      album: tag_frames["TALB"]
+      album: tag_frames["TALB"],
+      album_cover: tag_frames["APIC"]
     }
   end
 

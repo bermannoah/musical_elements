@@ -10,6 +10,8 @@ defmodule MusicalElements.ID3V1Parser do
     id3_section
   end
 
+  # Though id3v1 tags do not have album covers, this lets us expect only one
+  # type of output from the module.
   defp parse_id3_v1_metadata(metadata) do
      << _ :: binary-size(3), title :: binary-size(30), artist :: binary-size(30), album :: binary-size(30), _ :: binary >> = metadata
      %{
