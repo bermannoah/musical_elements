@@ -3,11 +3,13 @@ defmodule MusicalElements.Mixfile do
 
   def project do
     [app: :musical_elements,
-     version: "0.1.0",
+     version: "0.0.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     name: "MusicalElements",
+     source_url: "https://github.com/bermannoah/musical_elements"]
   end
 
   # Configuration for the OTP application
@@ -30,5 +32,20 @@ defmodule MusicalElements.Mixfile do
   defp deps do
     [{:mundane_elements, "~> 0.1.2"},
      {:id3v2, "~> 0.1.0"}]
+  end
+
+  defp description() do
+    "An early stage - use at your own risk - module designed to make it easy
+    to grab metadata from both id3v1 and id3v2 mp3s."
+  end
+
+  defp package() do
+    [
+      name: "musical_elements",
+      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      maintainers: ["Noah Berman"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/bermannoah/musical_elements"}
+    ]
   end
 end
