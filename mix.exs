@@ -28,6 +28,7 @@ defmodule MusicalElements.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:mundane_elements, "~> 0.1.2"}]
+    [{:mundane_elements, "~> 0.1.2"},
+     {:id3v2, "~> 0.1.0"}]
   end
 end

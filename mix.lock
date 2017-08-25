@@ -1,1 +1,2 @@
-%{"mundane_elements": {:hex, :mundane_elements, "0.1.2", "dce636a2fda35f649f65344ba9fd999b4c7dd7304b3a9bef3f561b490b9b6f56", [:mix], [], "hexpm"}}
+%{"id3v2": {:hex, :id3v2, "0.1.2", "477f95ec51f7189c2b7d128dc6a7dff9803ee0de71dbcf3afa800aaa5e9ab0c1", [:mix], [], "hexpm"},
+  "mundane_elements": {:hex, :mundane_elements, "0.1.2", "dce636a2fda35f649f65344ba9fd999b4c7dd7304b3a9bef3f561b490b9b6f56", [:mix], [], "hexpm"}}
