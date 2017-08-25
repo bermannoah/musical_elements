@@ -2,7 +2,7 @@ defmodule ID3V1Parser do
 
   @id3_tag_size 128
 
-  def parse(file_path) do
+  def parse_id3_v1(file_path) do
     read_file = File.read!(file_path)
     file_length = byte_size(read_file)
     music_data = file_length - @id3_tag_size
@@ -10,7 +10,7 @@ defmodule ID3V1Parser do
     id3_section
   end
 
-  defp parse_id3(metadata) do
+  defp parse_id3_v1_metadata(metadata) do
      << _ :: binary-size(3), title :: binary-size(30), artist :: binary-size(30), album :: binary-size(30), _ :: binary >> = metadata
      %{
         title: sanitize(title),
@@ -24,13 +24,13 @@ defmodule ID3V1Parser do
     text |> String.graphemes |> Enum.filter(not_zero) |> to_string |> String.strip
   end
 
-  def extract_id3(file) do
-    metadata = parse(file)
-    parse_id3(metadata)
+  def extract_id3_v1(file) do
+    metadata = parse_id3_v1(file)
+    parse_id3_v1_metadata(metadata)
   end
 
   def extract_id3_list(folder) do
-    folder |> list |> Enum.map(&extract_id3/1)
+    folder |> list |> Enum.map(&extract_id3_v1/1)
   end
 
   def list(folder) do
