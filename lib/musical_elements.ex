@@ -9,9 +9,9 @@ defmodule MusicalElements do
   Hello world.
 
   ## Examples
-      iex> path_to_file = "path/to/file.mp3"
+      iex> path_to_file = "test/fixtures/id3v2.mp3"
       iex> MusicalElements.get_id3_tags(path_to_file)
-      :musical_error
+      %{title: "my placid island", artist: "tryad", album: "public domain", album_cover: ""}
 
   """
 
