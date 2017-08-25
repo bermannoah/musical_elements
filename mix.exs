@@ -7,6 +7,8 @@ defmodule MusicalElements.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
      deps: deps(),
      name: "MusicalElements",
      source_url: "https://github.com/bermannoah/musical_elements"]
