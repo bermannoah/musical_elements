@@ -1,4 +1,4 @@
-defmodule ID3V1Parser do
+defmodule MusicalElements.ID3V1Parser do
 
   @id3_tag_size 128
 

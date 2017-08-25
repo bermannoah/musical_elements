@@ -1,4 +1,6 @@
 defmodule MusicalElements do
+  alias MusicalElements.ID3V2Parser
+  alias MusicalElements.ID3V1Parser
   @moduledoc """
   Documentation for MusicalElements.
   """
@@ -15,22 +17,31 @@ defmodule MusicalElements do
 
   def get_id3_tags(path_to_file) do
     if MundaneElements.get_file_type(path_to_file) == :mp3 do
-      read_tags(path_to_file)
+      read_id3_v2_tags(path_to_file)
     else
       :musical_error
     end
   end
 
-  def read_tags(path_to_file) do
-    case File.read(path_to_file) do
-      {:ok, binary} ->
-        parse_tags(binary)
-        _->
-          :musical_error
+  def read_id3_v2_tags(path_to_file) do
+    try do
+      tags = ID3V2Parser.extract_id3_v2(path_to_file)
+      parse_tags(tags)
+    rescue
+      _-> read_id3_v1_tags(path_to_file)
     end
   end
 
-  def parse_tags(binary) do
-    :hey
+  def read_id3_v1_tags(path_to_file) do
+    try do
+      tags = ID3V1Parser.extract_id3_v1(path_to_file)
+      parse_tags(tags)
+    rescue
+      e in RuntimeError -> e
+    end
+  end
+
+  def parse_tags(tags) do
+    tags
   end
 end

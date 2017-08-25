@@ -1,4 +1,4 @@
-defmodule ID3V2Parser do
+defmodule MusicalElements.ID3V2Parser do
 
   def extract_id3_v2(file_path) do
     read_file = File.read!(file_path)

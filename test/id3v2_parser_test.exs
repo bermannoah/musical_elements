@@ -1,5 +1,6 @@
 defmodule ID3V2ParserTest do
   use ExUnit.Case
+  alias MusicalElements.ID3V2Parser
 
   @mp3_fixture Path.join(__DIR__, "fixtures/fixture.mp3")
   @id3v2 Path.join(__DIR__, "fixtures/id3v2.mp3")
