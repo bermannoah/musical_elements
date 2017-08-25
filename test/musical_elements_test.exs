@@ -26,7 +26,12 @@ defmodule MusicalElementsTest do
     assert is_map(result)
   end
 
-  test ".get_id3_tags returns an empty string if an mp3 does not have an album cover" do
+  test ".get_id3_tags returns nil if an id3v1 mp3 does not have an album cover" do
+    result = MusicalElements.get_id3_tags(@id3v1)
+    assert result.album_cover == nil
+  end
+
+  test ".get_id3_tags returns an empty string if an id3v2 mp3 does not have an album cover" do
     result = MusicalElements.get_id3_tags(@id3v2)
     assert result.album_cover == ""
   end
