@@ -33,7 +33,8 @@ defmodule MusicalElements.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:mundane_elements, "~> 0.1.2"},
-     {:id3v2, "~> 0.1.0"}]
+     {:id3v2, "~> 0.1.0"},
+     {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 
   defp description() do
@@ -44,7 +45,7 @@ defmodule MusicalElements.Mixfile do
   defp package() do
     [
       name: "musical_elements",
-      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Noah Berman"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/bermannoah/musical_elements"}
